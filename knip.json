@@ -10,6 +10,12 @@
     "scripts/verify/fridaBindingsCompatibility.ts",
     "scripts/verify/termux/browser.mjs",
     "scripts/verify-real-ghidra-noreturn.mjs",
+    "scripts/verify-real-ghidra-m68k.mjs",
+    "scripts/verify-real-kuna.mjs",
+    "scripts/record-catalog-digests.mjs",
+    "scripts/verify/javascript/module-references.mjs",
+    "scripts/verify/javascript/native-handoffs.mjs",
+    "scripts/verify/javascript/retained-facts.mjs",
     "tests/processOwnershipRunner.ts"
   ],
   "project": ["src/**/*.ts", "tests/**/*.ts", "scripts/**/*.mjs"],
