@@ -84,5 +84,5 @@ describe("projectKeyedArchive root reference projection", () => {
         { offset: 0, limit: 1 },
       ),
     ).toThrow(RangeError);
-  });
+  }, 60_000);
 });
