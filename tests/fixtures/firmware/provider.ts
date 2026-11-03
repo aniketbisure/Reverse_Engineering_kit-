@@ -1,6 +1,6 @@
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { access, rm, writeFile } from "node:fs/promises";
+import { access, realpath, rm, writeFile } from "node:fs/promises";
 import { expect, onTestFinished } from "vitest";
 import { createFirmwareAnalysisProvider } from "../../../src/composition/firmware.js";
 import { FirmwareAnalysisService } from "../../../src/application/firmware/FirmwareAnalysisService.js";
@@ -20,6 +20,8 @@ export const firmwareFixture = async (mode = "normal", banner?: string) => {
     args: readonly string[];
   }[] = [];
   let cleanupUnverified = mode === "cleanup-failure";
+  const binwalkPath = await realpath("/usr/bin/true").catch(() => "/usr/bin/true");
+  const unblobPath = await realpath(process.execPath).catch(() => process.execPath);
   const provider = createFirmwareAnalysisProvider(
     {
       ...process.env,
@@ -29,8 +31,12 @@ export const firmwareFixture = async (mode = "normal", banner?: string) => {
     async (options) => {
       const start = options.arguments.indexOf("--") + 2;
       const args = options.arguments.slice(start);
+      const target = options.arguments[start - 1];
       const engine =
-        options.arguments[start - 1]?.endsWith("/true") === true
+        target === binwalkPath ||
+        target?.endsWith("/true") ||
+        target?.endsWith("/coreutils") ||
+        target !== unblobPath
           ? "binwalk"
           : "unblob";
       const spawned = await spawnOwnedProviderProcess({
