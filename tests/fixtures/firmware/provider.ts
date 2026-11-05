@@ -20,8 +20,12 @@ export const firmwareFixture = async (mode = "normal", banner?: string) => {
     args: readonly string[];
   }[] = [];
   let cleanupUnverified = mode === "cleanup-failure";
-  const binwalkPath = await realpath("/usr/bin/true").catch(() => "/usr/bin/true");
-  const unblobPath = await realpath(process.execPath).catch(() => process.execPath);
+  const binwalkPath = await realpath("/usr/bin/true").catch(
+    () => "/usr/bin/true",
+  );
+  const unblobPath = await realpath(process.execPath).catch(
+    () => process.execPath,
+  );
   const provider = createFirmwareAnalysisProvider(
     {
       ...process.env,
