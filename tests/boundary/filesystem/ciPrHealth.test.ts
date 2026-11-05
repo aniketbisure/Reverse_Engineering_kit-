@@ -409,7 +409,7 @@ it("public CLI uses only GET and produces a report from fixture GitHub responses
   await writeFile(
     ghResponse,
     JSON.stringify([
-      [rawPull(51, { mergeable: true })],
+      [rawPull(51, { mergeable: true, created_at: new Date(Date.now() - 86_400_000).toISOString() })],
       { total_count: 0, workflow_runs: [] },
     ]),
   );
