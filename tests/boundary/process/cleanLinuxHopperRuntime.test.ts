@@ -281,7 +281,7 @@ it.runIf(process.platform === "linux").each([
     const alternateMode = mode === "alternate launcher";
     const pythonMode = pythonOptions !== null;
     if (alternateMode) {
-      await copyFile("/usr/bin/sleep", launcher);
+      await copyFile(process.execPath, launcher);
       await chmod(launcher, 0o700);
       await symlink(launcher, alternate);
     }
@@ -304,7 +304,7 @@ it.runIf(process.platform === "linux").each([
         ? "/usr/bin/python3"
         : process.execPath;
     const arguments_ = alternateMode
-      ? ["30"]
+      ? ["-e", "setInterval(() => {}, 1000)"]
       : pythonMode
         ? [...pythonOptions, helper]
         : ["-e", childCode];

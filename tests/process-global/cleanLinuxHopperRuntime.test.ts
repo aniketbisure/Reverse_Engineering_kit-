@@ -35,7 +35,7 @@ it
     await mkdir(procRoot);
     const alternateMode = mode === "alternate launcher";
     if (alternateMode) {
-      await copyFile("/usr/bin/sleep", launcher);
+      await copyFile(process.execPath, launcher);
       await chmod(launcher, 0o700);
       await symlink(launcher, alternate);
     }
@@ -49,7 +49,9 @@ it
       procRoot,
     );
     const command = alternateMode ? alternate : process.execPath;
-    const arguments_ = alternateMode ? ["30"] : ["-e", childCode];
+    const arguments_ = alternateMode
+      ? ["-e", "setInterval(() => {}, 1000)"]
+      : ["-e", childCode];
     const parentCode = `
       const { spawn } = require('node:child_process');
       const child = spawn(${JSON.stringify(command)}, ${JSON.stringify(arguments_)}, {
