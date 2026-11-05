@@ -1,5 +1,28 @@
 # Changelog
 
+## [6.7.0](https://github.com/aniketbisure/Reverse_Engineering_kit-/compare/rea-agents-6.6.0...rea-agents-6.7.0) (2026-11-05)
+
+
+### Bug Fixes
+
+* **ci:** add missing verify:ghidra:bridge-sources script ([fbc5767](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/fbc57677021668359366d7d205ba9018cfd11fa9))
+* **ci:** repair static pipeline checks ([e2dc168](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/e2dc1682cd050c3adfaaf8a3afb568f2aaed5f69))
+* **ci:** restore executable git file modes for scripts and test stubs ([eeb5164](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/eeb5164643058440aeb025ced9ae5255624cad4c))
+* **format:** apply oxfmt formatting to ciPrHealth and firmware fixture files ([af5fc27](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/af5fc275afbfc2034f5131dbc03ace4fa1c5f650))
+* **test:** support coreutils symlink resolution for binwalk test stub ([1621895](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/16218957162820f130b7e53888e31ee180d56446))
+* **test:** use dynamic date in ciPrHealth fixture to stay within lookback window ([ab675a5](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/ab675a53409142872f5ec91ee86ddfb3e1f4684e))
+* **test:** use process.execPath for clean Linux runtime alternate launcher ([c9a9e19](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/c9a9e19d879c030efaef944660a9f33f238ce954))
+
+
+### Tests
+
+* **apple:** extend timeout for keyed archive traversal budget test ([7f1395b](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/7f1395b1a3256cb57fdbc3078b6ad971ff9ea4a8))
+
+
+### Continuous Integration
+
+* establish green baseline after test fixes ([a0349c8](https://github.com/aniketbisure/Reverse_Engineering_kit-/commit/a0349c86d47a5b2780af39aebcb4136de3652309))
+
 ## [6.6.0](https://github.com/morluto/rea/compare/rea-agents-6.5.0...rea-agents-6.6.0) (2026-10-18)
 
 ### Highlights
